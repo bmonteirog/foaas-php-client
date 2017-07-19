@@ -1,0 +1,12 @@
+{
+    "name": "bmonteirog/foaas-php-client",
+    "description": "A PHP client for FOAAS",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bruno Monteiro",
+            "email": "bmonteirog@gmail.com"
+        }
+    ],
+    "require": {}
+}
