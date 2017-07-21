@@ -1,19 +1,25 @@
-<?php
+<?php declare(strict_types=1);
 
 use PHPUnit\Framework\TestCase;
 
-use Bmonteirog\FOAAS\Client as Client;
-
-class ClientTeste extends TestCase
+final class ClientTeste extends TestCase
 {
 
   protected $client;
 
-  public function testCanCreateClient()
+  public function testCanCreateClient() : void
   {
-    $this->client = new Client;
+    $this->assertInstanceOf(
+        Bmonteirog\FOAAS\Client::class,
+        new Bmonteirog\FOAAS\Client
+    );
+  }
 
-    $this->assertTrue($this->client instanceof Bmonteirog\);
+  public function testCanGetVersion() : void
+  {
+    $fuck = new Bmonteirog\FOAAS\Client;
+    $version = $fuck->version();
+    $this->assertRegexp('/FOAAS - Version /', $version);
   }
 
 }
