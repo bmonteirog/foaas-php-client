@@ -14,10 +14,29 @@ class Client implements ClientInterface
         $this->clientInfo = 'FOAAS-PHP-Client bmonteirog@gmail.com';
     }
 
-    public function callApi($url)
+    /*
+    * Não implementando as chamadas dos métodos utilizando
+    * o método mágico __call pois quero ter todos os métodos
+    * públicos listados na interface ClientInterface
+    */
+    // public function __call($name, $args)
+    // {}
+
+    private function callApi($url, $arg1 = null, $arg2 = null, $arg3 = null)
     {
+        $url = $this->endpoint.$url;
+
+        if(!is_null($arg1))
+            $url .= '/'.$arg1;
+
+        if(!is_null($arg2))
+            $url .= '/'.$arg2;
+
+        if(!is_null($arg3))
+            $url .= '/'.$arg3;
+
         $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $this->endpoint.$url);
+        curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_USERAGENT, $this->clientInfo);
         $data = curl_exec($curl);
@@ -32,52 +51,52 @@ class Client implements ClientInterface
 
     public function operations()
     {
-
+        return $this->callApi('operations');
     }
 
     public function anyway($company, $from)
     {
-
+        return $this->callApi('anyway', $company, $from);
     }
 
     public function awesome($from)
     {
-
+        return $this->callApi('awesome', $from);
     }
 
     public function back($name, $from)
     {
-
+        return $this->callApi('back', $name, $from);
     }
 
-    public function bag($name, $from)
+    public function bag($from)
     {
-
+        return $this->callApi('bag', $from);
     }
 
     public function ballmer($name, $company, $from)
     {
-
+        return $this->callApi('ballmer', $name, $company, $from);
     }
 
     public function bday($name, $from)
     {
-
+        return $this->callApi('bday', $name, $from);
     }
 
     public function because($from)
     {
-
+        return $this->callApi('because', $from);
     }
 
     public function blackadder($name, $from)
     {
-
+        return $this->callApi('blackadder', $name, $from);
     }
 
     public function bm($name, $from)
     {
-
+        return $this->callApi('bm', $name, $from);
     }
 
     public function bucket($from)

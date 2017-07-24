@@ -4,4 +4,4 @@ require __DIR__ . '/vendor/autoload.php';
 
 $fuck = new Bmonteirog\FOAAS\Client;
 
-echo $fuck->version();
+echo var_dump($fuck->operations());

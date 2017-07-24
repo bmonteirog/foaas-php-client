@@ -15,7 +15,7 @@ interface ClientInterface
 
   public function back($name, $from);
 
-  public function bag($name, $from);
+  public function bag($from);
 
   public function ballmer($name, $company, $from);
 
