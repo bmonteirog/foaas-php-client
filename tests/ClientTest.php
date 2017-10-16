@@ -25,7 +25,7 @@ final class ClientTeste extends TestCase
 
   public function testCanGetVersion() : void
   {
-    $response = $this->fuck->version();
+    $response = $this->fuck->asHtml()->version();
     $this->assertRegexp('/FOAAS - Version /', $response);
   }
 

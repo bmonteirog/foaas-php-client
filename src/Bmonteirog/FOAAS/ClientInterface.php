@@ -8,6 +8,14 @@ interface ClientInterface
   public function version();
 
   public function operations();
+  
+  public function asJson();
+  
+  public function asHtml();
+  
+  public function asText();
+  
+  public function asXml();
 
   public function anyway($company, $from);
 

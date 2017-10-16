@@ -7,11 +7,13 @@ class Client implements ClientInterface
 
     private $endpoint;
     private $clientInfo;
+    private $accept;
 
     public function __construct()
     {
         $this->endpoint = 'http://foaas.com/';
         $this->clientInfo = 'FOAAS-PHP-Client bmonteirog@gmail.com';
+        $this->accept = 'text/plain';
     }
 
     /*
@@ -39,9 +41,43 @@ class Client implements ClientInterface
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_USERAGENT, $this->clientInfo);
+        
+        curl_setopt($curl, CURLOPT_HTTPHEADER, [
+          'Accept: ' . $this->accept
+        ]);
+        
         $data = curl_exec($curl);
         curl_close($curl);
         return $data;
+    }
+    
+    public function asJson()
+    {
+        $this->setHeaders('application/json');
+        return $this;
+    }
+    
+    public function asHtml()
+    {
+        $this->setHeaders('text/html');
+        return $this;
+    }
+    
+    public function asText()
+    {
+        $this->setHeaders('text/plain');
+        return $this;
+    }
+    
+    public function asXml()
+    {
+        $this->setHeaders('application/xml');
+        return $this;
+    }
+    
+    private function setHeaders($type)
+    {
+        $this->accept = $type;
     }
 
     public function version()
