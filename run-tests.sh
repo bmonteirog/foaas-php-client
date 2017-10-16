@@ -1,0 +1,1 @@
+docker run --rm -v $(pwd):/app -w /app php:cli vendor/bin/phpunit tests/ClientTest.php
