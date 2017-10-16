@@ -7,7 +7,7 @@ The best way to tell people to f* off in PHP.
 You can install via composer:
 
 ```bash
-composer require bmonteirog/foass-client
+composer require bmonteirog/foass-php-client
 ```
 
 Include the Composer's autoload file into your script:
