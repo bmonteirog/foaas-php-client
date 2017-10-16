@@ -40,6 +40,8 @@ interface ClientInterface
   public function cocksplat($name, $from);
 
   public function cool($from);
+  
+  public function cup($from);
 
   public function dalton($name, $from);
 
@@ -62,6 +64,8 @@ interface ClientInterface
   public function field($name, $from, $reference);
 
   public function flying($from);
+  
+  public function fyyff($from);
 
   public function gfy($name, $from);
 
@@ -70,6 +74,8 @@ interface ClientInterface
   public function greed($noun, $from);
 
   public function horse($from);
+  
+  public function immensity($from);
 
   public function ing($name, $from);
 
@@ -110,6 +116,8 @@ interface ClientInterface
   public function pink($from);
 
   public function problem($name, $from);
+  
+  public function programmer($from);
 
   public function pulp($language, $from);
 
@@ -155,6 +163,6 @@ interface ClientInterface
 
   public function zayn($from);
 
-  public function zero($name, $from);
+  public function zero($from);
 
 }
