@@ -7,11 +7,6 @@ TODO:
         text/html
         application/xml
 
-- Operations
-    Implement:
-        version()
-        ...
-
 - Filters
     shoutcloud
     i18n
