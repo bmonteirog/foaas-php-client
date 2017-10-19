@@ -59,3 +59,4 @@ public function asXml();
 ### To-do:
 
 - Filters (shoutcloud, i18n)
+- Use Guzzle instead of Curl
