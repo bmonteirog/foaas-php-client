@@ -43,7 +43,7 @@ class Client implements ClientInterface
             'Accept'     => $this->accept
         ];
         $request = $client->request('GET', $url, $headers);
-        $data = $request->getBody();
+        $data = $request->getBody()->getContents();
         return $data;
     }
     
