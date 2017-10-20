@@ -30,14 +30,21 @@ class Client implements ClientInterface
     {
         $url = $this->endpoint.$url;
 
-        if(!is_null($arg1))
+        if(!is_null($arg1)) {
             $url .= '/'.$arg1;
+        }
 
-        if(!is_null($arg2))
+        if(!is_null($arg2)) {
             $url .= '/'.$arg2;
+        }
 
-        if(!is_null($arg3))
+        if(!is_null($arg3)) {
             $url .= '/'.$arg3;
+        }
+        
+        if ($this->shout) {
+          $url .= '?shoutcloud';
+        }
 
         $client = new \GuzzleHttp\Client();
         $headers = [
@@ -46,17 +53,6 @@ class Client implements ClientInterface
         ];
         $request = $client->request('GET', $url, $headers);
         $data = $request->getBody()->getContents();
-
-        if ($this->shout) {
-            $client = new \GuzzleHttp\Client();
-            $request = $client->request('POST', 'http://api.shoutcloud.io/v1/shout', [
-                'headers' => ['Content-Type' => 'application/json'],
-                'query' => json_encode(['input' => $data])
-            ]);
-
-            return $request->getBody()->getContents();
-        }
-
         return $data;
     }
 
