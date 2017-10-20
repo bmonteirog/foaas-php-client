@@ -8,12 +8,14 @@ class Client implements ClientInterface
     private $endpoint;
     private $clientInfo;
     private $accept;
+    private $shout;
 
     public function __construct()
     {
         $this->endpoint = 'http://foaas.com/';
         $this->clientInfo = 'FOAAS-PHP-Client bmonteirog@gmail.com';
         $this->accept = 'text/plain';
+        $this->shout = false;
     }
 
     /*
@@ -44,19 +46,25 @@ class Client implements ClientInterface
         ];
         $request = $client->request('GET', $url, $headers);
         $data = $request->getBody()->getContents();
+
+        if ($this->shout) {
+            $client = new \GuzzleHttp\Client();
+            $request = $client->request('POST', 'http://api.shoutcloud.io/v1/shout', [
+                'headers' => ['Content-Type' => 'application/json'],
+                'query' => json_encode(['input' => $data])
+            ]);
+
+            return $request->getBody()->getContents();
+        }
+
         return $data;
     }
 
-    // public function shout()
-    // {
-    //     $client = new \GuzzleHttp\Client();
-    //     $headers = [
-    //         'User-Agent' => $this->clientInfo,
-    //         'Accept'     => $this->accept
-    //     ];
-    //     $request = $client->request('GET', $url, $headers);
-    //     $data = $request->getBody()->getContents();
-    // }
+    public function shout()
+    {
+        $this->shout = true;
+        return $this;
+    }
 
     public function asJson()
     {
