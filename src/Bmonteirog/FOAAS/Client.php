@@ -163,7 +163,7 @@ class Client implements ClientInterface
     
     public function cool($from)
     {
-      return $this->callApi('cool', $name, $from);
+      return $this->callApi('cool', $from);
     }
     
     public function cup($from)
@@ -473,7 +473,7 @@ class Client implements ClientInterface
 
     public function zero($from)
     {
-      return $this->callApi('zero', $name, $from);
+      return $this->callApi('zero', $from);
     }
 
 }
