@@ -563,4 +563,10 @@ final class ClientTeste extends TestCase
     $this->assertRegexp('/'.$check_for.'/', $response);
   }
 
+  public function testCanShoutFuckAwesome() : void
+  {
+    $response = $this->fuck->shout()->awesome($this->from);
+    $this->assertRegexp('/THIS IS FUCKING ASESOME/', $response);
+  }
+
 }

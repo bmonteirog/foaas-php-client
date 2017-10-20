@@ -46,7 +46,18 @@ class Client implements ClientInterface
         $data = $request->getBody()->getContents();
         return $data;
     }
-    
+
+    // public function shout()
+    // {
+    //     $client = new \GuzzleHttp\Client();
+    //     $headers = [
+    //         'User-Agent' => $this->clientInfo,
+    //         'Accept'     => $this->accept
+    //     ];
+    //     $request = $client->request('GET', $url, $headers);
+    //     $data = $request->getBody()->getContents();
+    // }
+
     public function asJson()
     {
         $this->setHeaders('application/json');
@@ -475,5 +486,4 @@ class Client implements ClientInterface
     {
       return $this->callApi('zero', $from);
     }
-
 }
