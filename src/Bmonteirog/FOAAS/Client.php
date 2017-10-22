@@ -8,12 +8,14 @@ class Client implements ClientInterface
     private $endpoint;
     private $clientInfo;
     private $accept;
+    private $shout;
 
     public function __construct()
     {
         $this->endpoint = 'http://foaas.com/';
         $this->clientInfo = 'FOAAS-PHP-Client bmonteirog@gmail.com';
         $this->accept = 'text/plain';
+        $this->shout = false;
     }
 
     /*
@@ -28,14 +30,21 @@ class Client implements ClientInterface
     {
         $url = $this->endpoint.$url;
 
-        if(!is_null($arg1))
+        if(!is_null($arg1)) {
             $url .= '/'.$arg1;
+        }
 
-        if(!is_null($arg2))
+        if(!is_null($arg2)) {
             $url .= '/'.$arg2;
+        }
 
-        if(!is_null($arg3))
+        if(!is_null($arg3)) {
             $url .= '/'.$arg3;
+        }
+        
+        if ($this->shout) {
+          $url .= '?shoutcloud';
+        }
 
         $client = new \GuzzleHttp\Client();
         $headers = [
@@ -46,7 +55,13 @@ class Client implements ClientInterface
         $data = $request->getBody()->getContents();
         return $data;
     }
-    
+
+    public function shout()
+    {
+        $this->shout = true;
+        return $this;
+    }
+
     public function asJson()
     {
         $this->setHeaders('application/json');
@@ -163,7 +178,7 @@ class Client implements ClientInterface
     
     public function cool($from)
     {
-      return $this->callApi('cool', $name, $from);
+      return $this->callApi('cool', $from);
     }
     
     public function cup($from)
@@ -473,7 +488,6 @@ class Client implements ClientInterface
 
     public function zero($from)
     {
-      return $this->callApi('zero', $name, $from);
+      return $this->callApi('zero', $from);
     }
-
 }
