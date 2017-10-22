@@ -56,7 +56,12 @@ public function asText();
 public function asXml();
 ```
 
-### To-do:
 
-- Filters (shoutcloud, i18n)
-- Use Guzzle instead of Curl
+### Shoutcloud
+
+You can also use the `shout()` method to integrate with [Shoutcloud - ALL CAPS AS A SERVICE](http://shoutcloud.io/) and get your messages shouted back to you.
+
+```php
+// Response: "JULIET, THOU CLAY-BRAINED GUTS, THOU KNOTTY-PATED FOOL, THOU WHORESON OBSCENE GREASY TALLOW-CATCH! - ROMEO"
+echo $fuck->shakespeare('Juliet', 'Romeo');
+```
