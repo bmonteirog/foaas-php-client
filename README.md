@@ -63,5 +63,5 @@ You can also use the `shout()` method to integrate with [Shoutcloud - ALL CAPS A
 
 ```php
 // Response: "JULIET, THOU CLAY-BRAINED GUTS, THOU KNOTTY-PATED FOOL, THOU WHORESON OBSCENE GREASY TALLOW-CATCH! - ROMEO"
-echo $fuck->shakespeare('Juliet', 'Romeo');
+echo $fuck->shout()->shakespeare('Juliet', 'Romeo');
 ```
