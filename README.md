@@ -18,22 +18,22 @@ require __DIR__ . '/vendor/autoload.php';
 Now you can call all the methods available at the `Bmonteirog\FOAAS\ClientInterface`
 
 ```php
-$fuck = new Bmonteirog\FOAAS\Client;
+$foaas = new Bmonteirog\FOAAS\Client;
 
 // Lists all available operations
-echo $fuck->operations();
+echo $foaas->operations();
 
-// Response: {"message":"Please choke on a bucket of cocks.","subtitle":"- Me"}
-echo $fuck->asJson()->bucket('Me');
+// Response: {"message":"Please choke on a bucket of c****.","subtitle":"- Me"}
+echo $foaas->asJson()->bucket('Me');
 
-// Response: "Fuck me. - Myself"
-echo $fuck->asText()->me('Myself');
+// Response: "F*** me. - Myself"
+echo $foaas->asText()->me('Myself');
 
 // Response: "Juliet, Thou clay-brained guts, thou knotty-pated fool, thou whoreson obscene greasy tallow-catch! - Romeo"
-echo $fuck->shakespeare('Juliet', 'Romeo');
+echo $foaas->shakespeare('Juliet', 'Romeo');
 
-// Response: "DO the fucking SOMETHING! - Myself"
-echo $fuck->asText()->dosomething('DO', 'SOMETHING', 'Myself');
+// Response: "DO the f****ng SOMETHING! - Myself"
+echo $foaas->asText()->dosomething('DO', 'SOMETHING', 'Myself');
 ```
 
 You can check all the responses on the [FOAAS official docs](https://www.foaas.com/).
@@ -63,5 +63,5 @@ You can also use the `shout()` method to integrate with [Shoutcloud - ALL CAPS A
 
 ```php
 // Response: "JULIET, THOU CLAY-BRAINED GUTS, THOU KNOTTY-PATED FOOL, THOU WHORESON OBSCENE GREASY TALLOW-CATCH! - ROMEO"
-echo $fuck->shout()->shakespeare('Juliet', 'Romeo');
+echo $foaas->shout()->shakespeare('Juliet', 'Romeo');
 ```
